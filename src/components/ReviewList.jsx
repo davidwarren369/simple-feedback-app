@@ -4,9 +4,9 @@ import ReviewItem from './ReviewItem'
 const ReviewList = ({ reviews }) => {
   
     return (
-    <div>
+    <div className="reviewList">
         {reviews.map((review) => {
-            <ReviewItem review={review}/>
+            return <ReviewItem key={review.id} review={review}/>
         })}
     </div>
   )

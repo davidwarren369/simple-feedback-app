@@ -30,7 +30,7 @@ function App() {
 
   return (
     <>
-      <div>
+      <div className="app">
         <h1>Feedback App</h1> 
         <Form   
           form={form}  // passing the properties down to the Form 'child' component 

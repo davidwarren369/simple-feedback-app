@@ -26,7 +26,7 @@ const Form = ({form, reviews, setForm, setReviews}) => {    //destructure the pr
 
 
     return (
-    <form onSubmit={handleSubmit}> {/* handleSubmit fuction is called when the user submits the form*/}
+    <form className="form" onSubmit={handleSubmit}> {/* handleSubmit fuction is called when the user submits the form*/}
 
       <h2>Leave a Review</h2>
      
