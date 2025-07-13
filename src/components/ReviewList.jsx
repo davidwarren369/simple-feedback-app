@@ -5,7 +5,7 @@ import ReviewItem from './ReviewItem'
 // Purpose of the component is take a list of review data and render each individual review using another component - ReviewItem 
 
 const ReviewList = ({ reviews }) => {  // ({reviews}) - this is how ReviewList receives it's props passed down from 'App' - Parent Component. 
-                                       // {} - object destructuring. React bundles all props into a single prob object. Destructuring enables access to all props
+                                       // {} - object destructuring. React bundles all props into a single prop object. Destructuring enables access to all props
     return (
     <>
     <div className="reviewList">

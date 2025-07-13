@@ -14,15 +14,18 @@ const Form = ({form, reviews, setForm, setReviews}) => {    //destructure the pr
         setForm({...form, [name]: value})    // setForm - setter function. ...form - spread operator (spread syntax): ensures that other properties of the form object (like id) are unchanged and not accidentally overwritten
     }                                        // [name]:value - [name] = computed property name. Taking the "name" and set it equal to the value.
 
+    //const [form, setForm] = useState({feedback: "", review: "", id: uuid()})
+
 
 
     // handleSubmit function - Handles the submission of the form
+
     const handleSubmit = e => {
       e.preventDefault()   //Prevents the browser's default form submission behavior (page reload)
-      setReviews([...reviews, form])   // ...reviews - creates a new array for the 'review' objects. 'form' - current state, (feedback, review & id) added as an item to the array
+      setReviews([...reviews, form])   // ...reviews - spread operator creates a new array in the 'reviews' objects. 'form' is added as an item to the array (containing: feedback, review & id data) 
       setForm({feedback: "", review: "", id: uuid()})   //Resets the forms input fields, clearing them out for the next entry
     }
-
+    // const [reviews, setReviews] = useState([]) 
 
 
     return (
