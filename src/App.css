@@ -38,3 +38,12 @@ button {
   width: 20rem;
   margin-top: 1rem;
 }
+
+.reviewContent {
+  font-size: medium;
+  font-weight: bold;
+}
+
+.name, .review {
+  font-weight:300;
+}

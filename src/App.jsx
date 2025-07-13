@@ -35,7 +35,7 @@ function App() {
         <Form   
           form={form}  // passing the properties down to the Form 'child' component 
           setForm={setForm}  // property(prop)={variable}
-          reviews={reviews}  
+          reviews={reviews}  // passing the properties down to the Form and ReviewList 'child' components
           setReviews={setReviews}/>   
         
         <ReviewList reviews={reviews}/> {/* property={variable} */}

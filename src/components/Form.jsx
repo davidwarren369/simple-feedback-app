@@ -19,13 +19,15 @@ const Form = ({form, reviews, setForm, setReviews}) => {    //destructure the pr
     // handleSubmit function - Handles the submission of the form
     const handleSubmit = e => {
       e.preventDefault()   //Prevents the browser's default form submission behavior (page reload)
-      setReviews([...reviews, form])   // ...reviews - creates a new array that includes all the existing reviews. 'form' - current state, (feedback, review & id) added as an item to the array
+      setReviews([...reviews, form])   // ...reviews - creates a new array for the 'review' objects. 'form' - current state, (feedback, review & id) added as an item to the array
       setForm({feedback: "", review: "", id: uuid()})   //Resets the forms input fields, clearing them out for the next entry
     }
 
 
 
     return (
+    <>
+    
     <form className="form" onSubmit={handleSubmit}> {/* handleSubmit fuction is called when the user submits the form*/}
 
       <h2>Leave a Review</h2>
@@ -57,6 +59,7 @@ const Form = ({form, reviews, setForm, setReviews}) => {    //destructure the pr
       <button type="submit">Submit</button>
     
     </form>
+    </>
   )
 }
 
