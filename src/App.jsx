@@ -23,7 +23,7 @@ function App() {
                                                                             //setForm, function called to update the 'form' state
                                                                             // uuid function is called so unique IDs are added to each user interaction
 
-  //useState Hook - For managing a dynamic list of reviews.
+  // useState Hook - For managing the list of reviews.
   //  state var, setter func   inital state (empty array)
   const [reviews, setReviews] = useState([])
 
