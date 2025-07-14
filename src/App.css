@@ -47,3 +47,11 @@ button {
 .name, .review {
   font-weight:300;
 }
+
+.buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-left: 70px;
+  margin-right: 70px;
+}

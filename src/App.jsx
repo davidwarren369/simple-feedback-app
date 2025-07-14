@@ -28,6 +28,8 @@ function App() {
   const [reviews, setReviews] = useState([])
 
 
+  const [editing, setEditing] = useState(false)
+
   return (
     <>
       <div className="app">
@@ -36,9 +38,18 @@ function App() {
           form={form}  // passing the properties down to the Form 'child' component 
           setForm={setForm}  // property(prop)={variable}
           reviews={reviews}  // passing the properties down to the Form and ReviewList 'child' components
-          setReviews={setReviews}/>   
+          setReviews={setReviews}
+          editing={editing}
+          setEditing={setEditing}
+          /> 
+            
         
-        <ReviewList reviews={reviews}/> {/* property={variable} */}
+        <ReviewList 
+        reviews={reviews} 
+        setReviews={setReviews}   // property={variable}
+        setForm={setForm}
+        setEditing={setEditing}
+        /> 
       </div>
       
     </>
