@@ -9,7 +9,7 @@ const Form = ({form, reviews, editing, setForm, setReviews, setEditing}) => {   
     //const [form, setForm] = useState({feedback: "", review: "", id: uuid()})
     // handleChange function - Handles 'input' changes in the form buy the user. 
                                              // Object Destructuring { name, value } - creates two new variables: name (holding the input's name attribute) and value (holding the input's current value)
-    const handleChange = (e) => {            // 'e' is the 'event object', that contains information about the event that occured. 
+    const handleChange = e => {            // 'e' is the 'event object', that contains information about the event that occured. 
         const { name, value } = e.target     // (e.target.name - looks at the "name" attribute of the input element) & (e.target.value - looks at the current value of the input element)
         setForm({...form, [name]: value})    // setForm - setter function. ...form - spread operator (spread syntax): ensures that other properties of the form object (like id) are unchanged and not accidentally overwritten
     }                                        // [name]:value - [name] = computed property name. Taking the "name" and set it equal to the value.
