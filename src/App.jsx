@@ -1,43 +1,32 @@
-import React, {useState} from 'react'  // required to bring in the entire core functionality of the React library
+import React, {useState} from 'react'               // Import 'React' required to bring in the entire core functionality of the React library
 import Form from './components/Form'
 import ReviewList from './components/ReviewList'
-import uuid from 'react-uuid' // The react-uuid library generates Universally Unique Identifiers 
-import './App.css'     // all css styling in app.css flows downwards and is applied to the children components
-
-
-// App is the parent, it can pass 'props' or properties down to it's children components (i.e. Form, ReviewList)
-// Props are a way of passing data from the parent to the child components
-// One-way data flow. Data always flows from parent to child
-
-// If a child needs to communicate back up to its parent (input changed, button click), 
-// it must call a 'function' that was passed down as a prop from the parent. 
-// The parent function then updates the parent's state, which in turn causes the parent to re-render and pass down new props to the child.
+import uuid from 'react-uuid'                       // The react-uuid library generates Universal Unique Identifier 
+import './App.css'                                  // all css styling in app.css flows downwards and is applied to the children components
 
 
 function App() {  
   
+//Hooks
 
-  //useState Hook - Tracks the state (data), inputted into the inputs on the form, 
-  //  state var, setter func          inital state (value), 
-  const [form, setForm] = useState({feedback: "", review: "", id: uuid()})  //form is a variable, holds the initial value of the state
-                                                                            //setForm, function called to update the 'form' state
-                                                                            // uuid function is called so unique IDs are added to each user interaction
-
-  // useState Hook - For managing the list of reviews.
-  //  state var, setter func   inital state (empty array)
+  //useState Hook - Purpose: To track and manage the state (data) entered into the input fields of the form
+  const [form, setForm] = useState({feedback: "", review: "", id: uuid()})   // 'feedback' and 'review' come from the 'name' attributes in the 'input' and 'textare' form elements
+                                                                                                                                                  
+  // useState Hook - Purpose: To manage the list of reviews submitted by users
   const [reviews, setReviews] = useState([])
 
-
+  // useState Hook - Purpose: To manage a boolean value that indicates whether the appl is in "edit" mode for a review OR "submit" mode for the form.
   const [editing, setEditing] = useState(false)
+
 
   return (
     <>
       <div className="app">
         <h1>Feedback App</h1> 
         <Form   
-          form={form}  // passing the properties down to the Form 'child' component 
-          setForm={setForm}  // property(prop)={variable}
-          reviews={reviews}  // passing the properties down to the Form and ReviewList 'child' components
+          form={form}                // Method for passing the properties down to the Form 'child' component 
+          setForm={setForm}          // property(prop)={variable}
+          reviews={reviews}          
           setReviews={setReviews}
           editing={editing}
           setEditing={setEditing}
@@ -46,7 +35,7 @@ function App() {
         
         <ReviewList 
         reviews={reviews} 
-        setReviews={setReviews}   // property={variable}
+        setReviews={setReviews}  
         setForm={setForm}
         setEditing={setEditing}
         /> 
