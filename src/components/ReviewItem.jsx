@@ -16,7 +16,7 @@ const ReviewItem = ({review, handleDelete, handleEdit}) => {  // ({review}) - wh
             <FaTrash/> Delete
           </button>
           
-          <button onClick={() => handleEdit(review.id)}>
+          <button onClick={() => handleEdit(review.id)}> {/*when edit button is clicked the review 'id' is passed to the 'handleEdit' function*/}
             <FaEdit/> Edit
           </button>
         </div>

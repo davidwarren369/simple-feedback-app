@@ -27,12 +27,13 @@ const Form = ({form, reviews, editing, setForm, setReviews, setEditing}) => {
     // 4. Computed Property Name: [name] - This is the copmuted name 'property' for the new object and is based on the name variable from e.target.name
     
 
+
     // handleSubmit function - Purpose: To handle the submission of the form when the user wants to add a new review.
 
     const handleSubmit = e => {
-      e.preventDefault()                                //The preventDefault method stops the browser's default form submission behavior (page reload)
-      setReviews([...reviews, form])                    // This is the core logic for adding a new review to the application's state.
-      setForm({feedback: "", review: "", id: uuid()})   //Resets the forms input fields, clearing them out for the next entry
+      e.preventDefault()                                // The preventDefault method stops the browser's default form submission behavior (page reload)
+      setReviews([...reviews, form])                    // This is the core logic for creating a new array and adding the latest review to that array.
+      setForm({feedback: "", review: "", id: uuid()})   // Resets the forms input fields, clearing them out for the next entry
     }
     // const [reviews, setReviews] = useState([])
 
@@ -40,9 +41,12 @@ const Form = ({form, reviews, editing, setForm, setReviews, setEditing}) => {
     // 1. Event Trigger: When "Submit" pressed, the onSubmit event fires, and the handleSubmit function is executed.
     // 2. e.preventDefault() - Stops the browser's default form submission behavior (page reload)
     // 3. setReviews - 'setter' function called to update 'reviews state variable
-    // 3. Spread Operator: ...reviews - 
+    // 3. Spread Operator: ...reviews - this unpacks or spreads all the existing elements from the reviews array into a new array being created.
+    // 3. Form Object: form - this represents the newly submitted review submitted and is added as the last element in the new array.
 
 
+
+    // handleSubmit function - Purpose: Processing the form data when the user is editing an existing review. It updates the specific review in the list and then resets the form.
 
     const handleUpdate = e => {
       e.preventDefault()
@@ -51,7 +55,13 @@ const Form = ({form, reviews, editing, setForm, setReviews, setEditing}) => {
       setReviews(updatedReviews)
       setForm({feedback: "", review: "", id: uuid()})   //Resets the forms input fields, clearing them out for the next entry
     }
+    // const [editing, setEditing] = useState(false)
 
+    // 1. Event Trigger:
+
+    // reviews.map: map array used to iterate over the existing array and return a new array
+    // reivew =>: This is a 'callback' function, which map() executes for each reivew in the array
+    // 
 
 
     return (
