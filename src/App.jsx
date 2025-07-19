@@ -10,7 +10,7 @@ function App() {
 //Hooks
 
   //useState Hook - Purpose: To track and manage the state (data) entered into the input fields of the form
-  const [form, setForm] = useState({feedback: "", review: "", id: uuid()})   // 'feedback' and 'review' come from the 'name' attributes in the 'input' and 'textare' form elements
+  const [form, setForm] = useState({name: "", review: "", id: uuid()})   // 'name' and 'review' come from the 'name' attributes in the 'input' and 'textare' form elements
                                                                                                                                                   
   // useState Hook - Purpose: To manage the list of reviews submitted by users
   const [reviews, setReviews] = useState([])

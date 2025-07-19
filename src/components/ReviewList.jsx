@@ -56,7 +56,7 @@ const ReviewList = ({ reviews, setReviews, setEditing, setForm }) => {  // ({rev
     //      - setForm setter function is called with the 'review to edit' object. 
     //      - editedPost[0]: [0] Array indexing is needed to access the first element in the array, regardless if it the only element.
     //      - This updates the 'form state' in App.jsx to contain the data of the review to be edited
-    //      - The form input fields are 'controlled components, so this populates the input fields with the feedback and review text
+    //      - The form input fields are 'controlled components, so this populates the input fields with the name and review text
     // 4. Set Editing Mode: 'setEditing(true)'
     //      - The setEditing 'setter' function is called to set 'editing' to (true)
     //      - The editing boolean prop is passed to Form.jsx which changes the forms behaviour

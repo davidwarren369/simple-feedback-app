@@ -11,11 +11,11 @@ const Form = ({form, reviews, editing, setForm, setReviews, setEditing}) => {
 
     const handleChange = e => {               // 'e' (event) is the function parameter, when an event happens the browser creates an 'Event object' and passes it as an argument to the function assigned to handle that event.
         const { name, value } = e.target      // This line extracts the 'name' and 'value' properties from the e.target object.
-        setForm({...form, [name]: value})     // this line creates a new form object where the 'name' property (feedback & review) is updated with its new value
+        setForm({...form, [name]: value})     // this line creates a new form object where the 'name' property (name & review) is updated with its new value
     }                                        
-    //const [form, setForm] = useState({feedback: "", review: "", id: uuid()})
+    //const [form, setForm] = useState({name: "", review: "", id: uuid()})
 
-    // 1. Event Trigger: The handleChange function is assigned as the 'onChange' event listener to the input (for feedback) and textarea (for review)
+    // 1. Event Trigger: The handleChange function is assigned as the 'onChange' event listener to the input (for name) and textarea (for review)
     // 2. Event Object Received: When an OnChange event happens, the browser provides an 'event object' as an 'argument' to the handleChange function
     // 3. Object Destructuring: Two new local variables are created - 'name' (the 'input' & 'textarea' name attribute) and 'value' (what the user inputted) 
     // 3. E.Target: refers to the DOM element that triggered the event, i.e. 'input' element or 'textarea' element
@@ -33,7 +33,7 @@ const Form = ({form, reviews, editing, setForm, setReviews, setEditing}) => {
     const handleSubmit = e => {
       e.preventDefault()                                // The preventDefault method stops the browser's default form submission behavior (page reload)
       setReviews([...reviews, form])                    // This is the core logic for creating a new array and adding the latest review to that array.
-      setForm({feedback: "", review: "", id: uuid()})   // Resets the forms input fields, clearing them out for the next entry
+      setForm({name: "", review: "", id: uuid()})   // Resets the forms input fields, clearing them out for the next entry
     }
     // const [reviews, setReviews] = useState([])
 
@@ -53,7 +53,7 @@ const Form = ({form, reviews, editing, setForm, setReviews, setEditing}) => {
       setEditing(false)                                               // true (if) : false (else)
       const updatedReviews = reviews.map(review => review.id === form.id ? form : review)
       setReviews(updatedReviews)
-      setForm({feedback: "", review: "", id: uuid()})   //Resets the forms input fields, clearing them out for the next entry
+      setForm({name: "", review: "", id: uuid()})   //Resets the forms input fields, clearing them out for the next entry
     }
     // const [editing, setEditing] = useState(false)
 
@@ -81,17 +81,17 @@ const Form = ({form, reviews, editing, setForm, setReviews, setEditing}) => {
 
       <h2>Leave a Review</h2>
      
-      <label htmlFor="feedback">Name</label>   {/* htmlFor is a 'prop' - Its value must match the id attribute of the input element it's labeling. */}
+      <label htmlFor="name">Name</label>   {/* htmlFor is a 'prop' - Its value must match the id attribute of the input element it's labeling. */}
                                                {/* Used to explicitly associate the <label> with a specific form control, i.e. the <input>  */}
                                                {/* When you click on a label associated with an input, it often focuses or activates the corresponding input field, making it easier for users to interact with your forms. */}
       
       <input 
       type="text" 
-      placeholder="Enter your feedback" 
-      id="feedback"             // corresponding 'matching' value to the 'htmlfor' value
-      name="feedback"           // handleChange function
+      placeholder="Enter your name" 
+      id="name"             // corresponding 'matching' value to the 'htmlfor' value
+      name="name"           // handleChange function
       autoComplete='off'
-      value={form.feedback}     // This makes the input a 'controlled component'. Its displayed value is synchronized with the feedback property of your form state.
+      value={form.name}     // This makes the input a 'controlled component'. Its displayed value is synchronized with the name property of your form state.
       onChange={handleChange}   // Onchange 'event listener' assigned to the 'Input' element in order to call the handleChange function. 
       />
       
@@ -101,7 +101,7 @@ const Form = ({form, reviews, editing, setForm, setReviews, setEditing}) => {
       placeholder="Enter your review" 
       id="review"               // corresponding 'matching' value to the 'htmlfor' value
       name="review"             // handleChange function
-      value={form.review}       // This makes the input a 'controlled component'. Its displayed value is synchronized with the feedback property of your form state.
+      value={form.review}       // This makes the input a 'controlled component'. Its displayed value is synchronized with the name property of your form state.
       onChange={handleChange}   // Onchange 'event listener' assigned to the 'Textarea' element in order to call the handleChange function. 
       />
       

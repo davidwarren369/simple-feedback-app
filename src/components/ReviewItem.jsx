@@ -8,7 +8,7 @@ const ReviewItem = ({review, handleDelete, handleEdit}) => {  // ({review}) - wh
     <>
     <div className="reviewItem">
         <h3 className="name">Name:</h3>
-        <h2>{review.feedback}</h2>  {/* Renders the feedback part of the review - {} used for embedding JS expression within JSX - review.feedback accesses the 'feedback' property from the review object */}
+        <h2>{review.name}</h2>  {/* Renders the name part of the review - {} used for embedding JS expression within JSX - review.name accesses the 'name' property from the review object */}
         <h3 className="review">Review:</h3>
         <p className="reviewContent">{review.review}</p>      {/* Renders the review part of the review - {} used for embedding JS expression within JSX - review.review accesses the 'review' property from the review object */}
         <div className='buttons'>
@@ -29,4 +29,4 @@ export default ReviewItem
 
 
 // ({review}) is the local variable created by destructuring, and it holds the value of the review prop passed down from the parent. 
-// This makes it convenient to use review.feedback and review.review directly within the component's JSX.
+// This makes it convenient to use review.name and review.review directly within the component's JSX.
