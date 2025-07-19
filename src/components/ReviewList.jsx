@@ -36,13 +36,12 @@ const ReviewList = ({ reviews, setReviews, setEditing, setForm }) => {  // ({rev
     //      - the review that was just "deleted" (i.e., excluded from the new array) will no longer be displayed in the UI.
 
 
-    // handleEdit funtion - Purpose: 
+    // handleEdit funtion - Purpose: enabling users to modify existing reviews. It works by identifying the specific review to be edited, populating the form with its data, and then switching the application's state to "edit mode"
     const handleEdit = id => {
       const editedPost = reviews.filter(review => review.id === id)  // this line is responsible for finding the specific review object that the user wants to edit.
       setForm(editedPost[0])
       setEditing(true)
     }
-    // const [editing, setEditing] = useState(false)
 
     // 1. Trigger: When the 'edit' button is pressed, the review 'id' is passed to the handleEdit function
     // 2. editedPost: reviews.filter 
@@ -59,10 +58,10 @@ const ReviewList = ({ reviews, setReviews, setEditing, setForm }) => {  // ({rev
     //      - This updates the 'form state' in App.jsx to contain the data of the review to be edited
     //      - The form input fields are 'controlled components, so this populates the input fields with the feedback and review text
     // 4. Set Editing Mode: 'setEditing(true)'
-    // - The setEditing 'setter' function is called to set 'editing' to (true)
-    // - The editing boolean prop is passed to Form.jsx which changes the forms behaviour
-    //        - The submit button's text changes from "Submit" to "Update".
-    //        - The 'onSubmit' handler will now call 'handleUpdate' instead of 'handleSubmit' 
+    //      - The setEditing 'setter' function is called to set 'editing' to (true)
+    //      - The editing boolean prop is passed to Form.jsx which changes the forms behaviour
+    //          - The submit button's text changes from "Submit" to "Update".
+    //          - The 'onSubmit' handler will now call 'handleUpdate' instead of 'handleSubmit' 
     
 
 
