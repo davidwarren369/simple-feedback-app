@@ -50,7 +50,7 @@ const Form = ({form, reviews, editing, setForm, setReviews, setEditing}) => {
 
     const handleUpdate = e => {
       e.preventDefault()
-      setEditing(false)
+      setEditing(false)                                               // true (if) : false (else)
       const updatedReviews = reviews.map(review => review.id === form.id ? form : review)
       setReviews(updatedReviews)
       setForm({feedback: "", review: "", id: uuid()})   //Resets the forms input fields, clearing them out for the next entry
@@ -61,12 +61,22 @@ const Form = ({form, reviews, editing, setForm, setReviews, setEditing}) => {
 
     // reviews.map: map array used to iterate over the existing array and return a new array
     // reivew =>: This is a 'callback' function, which map() executes for each reivew in the array
-    // 
+    // review.id === form.id ? form : review:
+    //      - ?: Ternary operator (shorthand for 'if-else' statement) that determines
+    //      - review.id === form.id: is the 'condition' being evaluated
+    //      - review.id: unique ID of the current review object being iterated over
+    //      - form.id: The id of the review that is currently being edited
+    //      - form: condition is 'true', the form object is returned, and is in the new array
+    //      - review: condition is false (id's don't match) is not in the new array
+    // setReviews(updatedReviews): 
+    //      - 'updateReviews' is passed to 'setReviews', 
+    //      - telling React to replace the current reviews state (old array) with this updatedReviews array (new array)
+    //      - 'ReviewsList' will display the updated review. 
 
-
+    
     return (
     <>
-    
+                              {/* state var   */}
     <form className="form" onSubmit={editing ? handleUpdate : handleSubmit}> {/* handleSubmit fuction is called when the user submits the form*/}
 
       <h2>Leave a Review</h2>
